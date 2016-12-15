@@ -1,0 +1,9 @@
+﻿<div class="menu-area" ng-class="{'menu-area-vertical': isVertical,
+'menu-area-horizontal': !isVertical}">
+    <ul class="menu" ng-transclude></ul>
+    <a class="btn menu-layout-button"
+       ng-class="{'layout-button-horizontal': !isVertical}"
+       ng-click="toggleMenuOrientation()">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>

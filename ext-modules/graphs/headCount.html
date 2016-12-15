@@ -1,0 +1,21 @@
+﻿﻿<div class="container">
+    <h1>{{title}}</h1>
+    <div class="row">
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <div class='input-group date' id='headcountpicker'>
+                    <input type='text' id="inputQueryDate" ng-model="selected.date" class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <div>
+                    <button class="btn btn-primary" ng-click="changeVisitDate(selected.date)">Run report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="line" class="chart chart-line graphWidth" chart-data="data" chart-labels="labels"
+            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride"></canvas>
+</div>

@@ -1,0 +1,107 @@
+﻿.menu-area {
+    position: relative;
+    background-color: #333;
+    color: #ccc;
+    padding-left: 0;
+}
+
+.menu-area-vertical {
+    width: 200px;
+    min-height: 100vh;
+    padding-top: 30px;
+}
+
+.menu-area-horizontal {
+    width: 100%;
+    height: 40px;
+}
+
+.menu-area ul {
+    padding-left: 0;
+}
+
+.menu-left {
+    padding-left: 0;
+}
+
+.menu-area .btn:hover {
+    color: #ccc;
+}
+
+.menu {
+    list-style-type: none;
+    vertical-align: top;
+}
+
+.menu ul {
+    display: inline;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu li {
+    line-height: 3em;
+    cursor: pointer;
+}
+
+.menu li div {
+    display: inline-block;
+    width: 90%;
+    padding-left: 16px;
+}
+
+.selectable-item:hover {
+    background-color: #555;
+}
+
+.menu-icon {
+    margin-right: 10px;
+}
+
+.menu-active-indicator {
+    float: right;
+    color: #ddd;
+    margin-right: 0;
+    margin-top: 8px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.group-indicator-left {
+    float: right;
+    color: #ddd;
+    margin-right: 2px;
+    margin-top: 15px;
+}
+
+.subitem-section {
+    padding-left: 16px;
+}
+
+.menu-layout-button {
+    margin: 12px;
+    padding: 2px 8px;
+    color: #bbb;
+    background-color: #333;
+    border: 1px solid #999;
+}
+
+.item-horizontal {
+    display: inline-block;
+    width: 165px !important;
+    margin-left: 20px;
+    margin-top: 5px;
+    line-height: 1.5em !important;
+}
+
+.layout-button-horizontal{
+    position: absolute;
+    top: -6px;
+    right: 10px;
+}

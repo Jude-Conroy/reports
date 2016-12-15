@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Minute Media</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="font-awesome.min.css" rel="stylesheet" />
+    <link href="app.css" rel="stylesheet" />
+    <link href="graphs/graph.css" rel="stylesheet" />
+    <link href="frameworkCore/framework.css" rel="stylesheet" />
+    <link href="menu/menu.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="angular-messages/angular-messages.js"></script>
+    <script type="text/javascript" src="angular-aria/angular-aria.js"></script>
+
+    <script type="text/javascript" src="moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+    <script type="text/javascript" src="menu/menu.js"></script>
+    <script type="text/javascript" src="menu/menuController.js"></script>
+    <script type="text/javascript" src="menu/menuDirective.js"></script>
+    <script type="text/javascript" src="menu/menuItemDirective.js"></script>
+    <script type="text/javascript" src="menu/menuGroupDirective.js"></script>
+
+    <script type="text/javascript" src="frameworkCore/framework.js"></script>
+    <script type="text/javascript" src="frameworkCore/frameworkController.js"></script>
+    <script type="text/javascript" src="frameworkCore/frameworkDirective.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="appconfig.js"></script>
+    <script type="text/javascript" src="appRoutes.js"></script>
+
+    <script src="directives/headCountDirective.js"></script>
+    <script src="directives/customerVisitsDirective.js"></script>
+    <script src="directives/locationsDirective.js"></script>
+
+    <script type="text/javascript" src="chart.js/dist/Chart.js"></script>
+    <script type="text/javascript" src="angular-chart.js/dist/angular-chart.js"></script>
+
+    <script type="text/javascript" src="dataService.js"></script>
+    <script type="text/javascript" src="app/serviceDayCtrl.js"></script>
+
+    <!-- Google Places API -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    <script src="public/angular-google-places-map/dist/js/ngplacesmap.min.js"></script>
+    <!-- Style (optional) -->
+    <link rel="stylesheet" href="public/angular-google-places-map/dist/css/ngplacesmap.min.css">
+
+    <script src="dashboard/dashboard.js"></script>
+    <script src="remarkable-bootstrap-notify/dist/bootstrap-notify.js"></script>
+
+</head>
+
+<body class="container-fluid">
+    <framework title="Minute Media" subtitle="Reporting" icon-file="yoda_256.png">
+        <menu class="menu-left">
+            <menu-item label="Dashboard" icon="fa-dashboard" route="dashboard"></menu-item>
+            <menu-group label="Reports" icon="fa-gears">
+                <menu-item label="Service day" icon="fa-bar-chart" route="ServiceDay"></menu-item>
+                <menu-item label="Visits" icon="fa-pie-chart" route="CustomerVisit"></menu-item>
+                <menu-item label="Head Count" icon="fa-line-chart" route="HeadCount"></menu-item>
+            </menu-group>
+            <menu-item label="Locations" icon="fa-globe" route="Location"></menu-item>
+            <menu-item label="Account" icon="fa-user" route="account"></menu-item>
+            <menu-item label="Contact" icon="fa-compress" route="contact"></menu-item>
+            <menu-group label="Admin" icon="fa-gears">
+                <menu-item label="Add User" icon="fa-bar-chart" route="AddUser"></menu-item>
+                <menu-item label="Modify User" icon="fa-pie-chart" route="ModifyUser"></menu-item>
+                <menu-item label="Add location" icon="fa-line-chart" route="AddLocation"></menu-item>
+                <menu-item label="Modify location" icon="fa-line-chart" route="ModifyLocation"></menu-item>
+                <menu-item label="Generate location" icon="fa-line-chart" route="GenerateLocation"></menu-item>
+            </menu-group>
+        </menu>        
+    </framework>
+</body>
+</html>

@@ -3,7 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Minute Media</title>
-    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="bootstrap.min.css" rel="stylesheet" />
     <link href="font-awesome.min.css" rel="stylesheet" />
@@ -41,6 +42,8 @@
     <script src="directives/headCountDirective.js"></script>
     <script src="directives/customerVisitsDirective.js"></script>
     <script src="directives/locationsDirective.js"></script>
+    <script src="directives/dashboardDirective.js"></script>
+    <script src="app/directives/addUserDirective.js"></script>
 
     <script type="text/javascript" src="chart.js/dist/Chart.js"></script>
     <script type="text/javascript" src="angular-chart.js/dist/angular-chart.js"></script>
@@ -62,21 +65,21 @@
 <body class="container-fluid">
     <framework title="Minute Media" subtitle="Reporting" icon-file="yoda_256.png">
         <menu class="menu-left">
-            <menu-item label="Dashboard" icon="fa-dashboard" route="dashboard"></menu-item>
+            <menu-item label="Dashboard" icon="fa-dashboard" route="DashboardView"></menu-item>
             <menu-group label="Reports" icon="fa-gears">
-                <menu-item label="Service day" icon="fa-bar-chart" route="ServiceDay"></menu-item>
-                <menu-item label="Visits" icon="fa-pie-chart" route="CustomerVisit"></menu-item>
-                <menu-item label="Head Count" icon="fa-line-chart" route="HeadCount"></menu-item>
+                <menu-item label="Service day" icon="fa-bar-chart" route="ServiceDayView"></menu-item>
+                <menu-item label="Visits" icon="fa-pie-chart" route="CustomerVisitView"></menu-item>
+                <menu-item label="Head Count" icon="fa-line-chart" route="HeadCountView"></menu-item>
             </menu-group>
-            <menu-item label="Locations" icon="fa-globe" route="Location"></menu-item>
-            <menu-item label="Account" icon="fa-user" route="account"></menu-item>
-            <menu-item label="Contact" icon="fa-compress" route="contact"></menu-item>
-            <menu-group label="Admin" icon="fa-gears">
-                <menu-item label="Add User" icon="fa-bar-chart" route="AddUser"></menu-item>
-                <menu-item label="Modify User" icon="fa-pie-chart" route="ModifyUser"></menu-item>
-                <menu-item label="Add location" icon="fa-line-chart" route="AddLocation"></menu-item>
-                <menu-item label="Modify location" icon="fa-line-chart" route="ModifyLocation"></menu-item>
-                <menu-item label="Generate location" icon="fa-line-chart" route="GenerateLocation"></menu-item>
+            <menu-item label="Locations" icon="fa-globe" route="LocationView"></menu-item>
+            <menu-item label="Account" icon="fa-user" route="accountView"></menu-item>
+            <menu-item label="Contact" icon="fa-compress" route="contactView"></menu-item>
+            <menu-group label="Admin" icon="fa-admin">
+                <menu-item label="Add User" icon="fa-user" route="AddUserView"></menu-item>
+                <menu-item label="Modify User" icon="fa-users" route="ModifyUserView"></menu-item>
+                <menu-item label="Add location" icon="fa-thumb-tack" route="AddLocationView"></menu-item>
+                <menu-item label="Modify location" icon="fa-globe" route="ModifyLocationView"></menu-item>
+                <menu-item label="Generate location" icon="fa-compass" route="GenerateLocationView"></menu-item>
             </menu-group>
         </menu>        
     </framework>

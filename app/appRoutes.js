@@ -3,23 +3,25 @@
 angular.module('app').config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
-        .when("/HeadCount", {
+        .when("/AddUserView", {
+            template : "<user-directive></user-directive>"
+        })
+        .when("/HeadCountView", {
             template : "<headcount-directive></headcount-directive>"
         })
-        .when("/ServiceDay", {
+        .when("/ServiceDayView", {
             templateUrl : "graphs/serviceDay.html",
             controller: "serviceDayCtrl"
         })
-        .when("/CustomerVisit", {
+        .when("/CustomerVisitView", {
             template : "<customer-visits-directive></customer-visits-directive>"
         })
-        .when("/Location", {
+        .when("/LocationView", {
             template : "<locations></locations>"
         })
-        .when("/AddUser", {
-            template : "<user-directive></user-directive>"
-        });
-
-    $routeProvider.otherwise({ redirectTo: '/' });
+        .when("/DashboardView", {
+            template : "<dashboard-directive></dashboard-directive>"
+        })
+        .otherwise({ redirectTo: '/DashboardView' });
 
 }]);

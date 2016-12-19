@@ -16,14 +16,14 @@ angular.module('app').directive('locations', [function () {
             $scope.title = "Venue Location";
 
             $scope.initAddress = {
-                place_id : "ChIJ31GTk67GhkcRPw6Nl8LeRdQ",
+                place_id : "!4m5!3m4!1s0x48760f407b3ded85:0x3bdf476deb47f23e!8m2!3d",
                 geometry : {
                     location : {
-                        A : 45.464679,
-                        F : 9.190770100000009
+                        A : 51.4496363,
+                        F : -0.2104816
                     }
                 },
-                zoom: 20
+                zoom: 18
             };
 
         }]),

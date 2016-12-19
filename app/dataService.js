@@ -73,3 +73,40 @@ angular.module('app').factory("headCountService", function($http) {
     };
     return factory;
 });
+
+angular.module('app').factory("userService", function($http) {
+
+    var factory = {};
+
+    factory.save = function (user) {
+
+        var data = {
+            userName: user.name,
+            userEmail: user.email,
+            userVenueId: user.venueId
+        };
+
+        var config = {
+            params: data,
+            headers: {'Accept': 'application/json'}
+        };
+
+        return $http.get("/addUser", config);
+    };
+
+    factory.delete = function (user) {
+
+        var data = {
+            userName: user.name,
+            venueid: user.email
+        };
+
+        var config = {
+            params: data,
+            headers: {'Accept': 'application/json'}
+        };
+
+        return $http.get("/deleteUser", config);
+    };
+    return factory;
+});

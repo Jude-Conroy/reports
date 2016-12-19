@@ -40,6 +40,16 @@ angular.module("app").controller("serviceDayCtrl", ["$scope", "serviceDayService
 
     $scope.changeDate = function() {
 
+        $.notify({
+            title: '<strong>Report: </strong>',
+            message: "request submitted"
+        },{
+            type: 'info'
+        },{animate: {
+            enter: 'animated fadeInRight',
+            exit: 'animated fadeOutRight'
+        }})
+
         $scope.data = null;
         $scope.labels = null;
         $scope.series = null;
@@ -53,7 +63,7 @@ angular.module("app").controller("serviceDayCtrl", ["$scope", "serviceDayService
                     title: '<strong>Report: </strong>',
                     message: response.data
                 },{
-                    type: 'danger'
+                    type: 'warning'
                 },{animate: {
                     enter: 'animated fadeInRight',
                     exit: 'animated fadeOutRight'
@@ -61,7 +71,7 @@ angular.module("app").controller("serviceDayCtrl", ["$scope", "serviceDayService
             }else if(  Object.prototype.toString.call(response.data) == "[object Array]"){
                 $.notify({
                     title: '<strong>Report: </strong>',
-                    message: $scope.selected.range + " report <strong>successful</strong>"
+                    message: $scope.selected.range + " <strong>successful</strong>"
                 },{
                     type: 'success'
                 },{animate: {

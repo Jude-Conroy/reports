@@ -1,14 +1,22 @@
-<h1>Add New User</h1>
-<form name="userForm" novalidate>
-    <div class="form-group" show-errors>
-        <label class="control-label">Name</label>
-        <input type="text" class="form-control" name="name" ng-model="user.name" required placeholder="Name" />
-    </div>
-    <div class="form-group" show-errors>
-        <label class="control-label">Email</label>
-        <input type="email" class="form-control" name="email" ng-model="user.email" required placeholder="Email" />
-    </div>
+<div class="inner contact">>
+    <h1>Add New User</h1>
+    <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+        <form name="userForm" novalidate>
+            <div class="form-group" show-errors>
+                <label class="control-label">Name</label>
+                <input type="text" class="form-control" name="name" ng-model="user.name" required placeholder="Name" />
+            </div>
+            <div class="form-group" show-errors>
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" name="email" ng-model="user.email" required placeholder="Email" />
+            </div>
+            <div class="form-group" show-errors>
+                <label class="contact-text">VenueId</label>
+                <input type="text" class="form-control" name="venueId" ng-model="user.venueId" required placeholder="VenueId" />
+            </div>
 
-    <button class="btn btn-primary" ng-click="save()">Add User</button>
-    <button class="btn btn-link" ng-click="reset()">Reset</button>
-</form>
+            <button class="btn btn-primary" ng-click="save()">Add User</button>
+            <button class="btn btn-link" ng-click="reset()">Reset</button>
+        </form>
+    </div>
+</div>

@@ -6,6 +6,7 @@ const visitOneWeek = require('./server/visitOneWeek.js');
 const visitFourWeeks = require('./server/visitFourWeeks.js');
 const visitSixMonths = require('./server/visitSixMonths.js');
 const headcount = require('./server/headCount.js');
+const user = require("./server/userAdmin")
 const port = 3000;
 
 app.use(express.static(path.join(__dirname + '/public')));
@@ -55,8 +56,10 @@ app.get('/headCountReport', function(request, response) {
     });
 });
 
-app.get('/reportFour', function(request, response) {
-    response.send('Hello from Four!')
+app.get('/addUser', function(request, response) {
+    user.addUser(request.query.userName, request.query.userEmail, request.query.userVenueId, function(data){
+        response.send(data);
+    });
 });
 
 app.listen(port, function(err) {

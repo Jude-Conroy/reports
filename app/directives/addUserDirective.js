@@ -7,21 +7,56 @@ var module = angular.module('app');
 
 module.directive('userDirective', function () {
     return {
-        restrict: 'EA',
         scope: {
             model: '=ngModel',
             name: '@',
             email: '@'
         },
         templateUrl: 'graphs/addUser.html',
-        controller: ('userController', ['$scope', 'userService', function ($scope, customerVisitsService) {
+        controller: ('userController', ['$scope', 'userService', function ($scope, userService) {
 
+            $scope.user = {
+                name: '',
+                email: '',
+                venueId: '',
+            };
 
-        }]),
-        link: function (scope, iElement, attrs, ctrl) {
+            $scope.save = function() {
+                if ($scope.userForm.$valid) {
 
-        }
-    };
+                    userService.save($scope.user).then(function (response) {
+                        $.notify({
+                            title: '<strong>Saved: </strong>',
+                            message: response.data
+                        }, {
+                            type: 'success'
+                        }, {
+                            animate: {
+                                enter: 'animated fadeInRight',
+                                exit: 'animated fadeOutRight'
+                            }
+                        })
+                    });
+                    $scope.reset();
+                } else {
+
+                    $.notify({
+                        title: '<strong>Failed: </strong>',
+                        message: "invalid fields, please check."
+                    },{
+                        type: 'warning'
+                    },{animate: {
+                        enter: 'animated fadeInRight',
+                        exit: 'animated fadeOutRight'
+                    }
+                    });
+                }
+            };
+
+            $scope.reset = function() {
+                $scope.user = { name: '', email: '' };
+            }
+        }])};
 });
 
 module.directive('showErrors', function() {
@@ -50,7 +85,16 @@ module.controller('NewUserController', function($scope) {
             alert('User saved');
             $scope.reset();
         } else {
-            alert("There are invalid fields");
+            $.notify({
+                title: '<strong>Report: </strong>',
+                message: "There are invalid fields. "
+            },{
+                type: 'danger'
+            },{animate: {
+                enter: 'animated fadeInRight',
+                exit: 'animated fadeOutRight'
+            }
+            });
         }
     };
 

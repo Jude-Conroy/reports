@@ -1,9 +1,12 @@
 ﻿"use strict";
 
-angular.module('app').directive('dashboard', [function () {
+angular.module('app').directive('dashboardDirective', [function () {
     return {
-        scope: {
-        },
-        template: '<h1>Dashboard Page</h1>'
-    }
+        template: "<h1>Dashboard</h1>",
+        controller: ('headcountController', ['$scope', 'headCountService', function($scope, headCountService) {
+
+        }]),
+        link: function(scope, iElement, attrs, ctrl) {
+        }
+    };
 }]);

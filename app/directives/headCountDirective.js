@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 angular.module('app').directive('headcountDirective', [function () {
     return {
@@ -9,8 +9,6 @@ angular.module('app').directive('headcountDirective', [function () {
         templateUrl: 'graphs/headCount.html',
         controller: ('headcountController', ['$scope', 'headCountService', 'VenueService', function($scope, headCountService, VenueService) {
 
-            $scope.title = "Headcount/Hour";
-
             $('#headcountpicker').datetimepicker({
                 viewMode: 'days',
                 format: 'DD/MM/YYYY'
@@ -20,6 +18,8 @@ angular.module('app').directive('headcountDirective', [function () {
             $scope.selected = {
                 date: initialDate.getDate()  + "/" + (initialDate.getMonth() + 1) + "/" + initialDate.getFullYear()
             };
+
+            $scope.title = "Headcount per hour";
 
             $scope.changeVisitDate = function(){
                 $scope.labels = [];

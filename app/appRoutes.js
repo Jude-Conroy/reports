@@ -3,11 +3,11 @@
 angular.module('app').config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
-        .when("/AddUserView", {
-            template : "<user-directive></user-directive>"
-        })
         .when("/HeadCountView", {
             template : "<headcount-directive></headcount-directive>"
+        })
+        .when("/AddUserView", {
+            template : "<user-directive></user-directive>"
         })
         .when("/ServiceDayView", {
             templateUrl : "graphs/serviceDay.html",

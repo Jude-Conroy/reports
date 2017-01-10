@@ -3,7 +3,7 @@
  */
 "use strict";
 
-angular.module("app").controller("serviceDayCtrl", ["$scope", "serviceDayService", function ($scope, serviceDayService) {
+angular.module("app").controller("serviceDayCtrl", ["$scope", "serviceDayService", "VenueService", function ($scope, serviceDayService, VenueService) {
 
     $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     $scope.options = {
@@ -56,7 +56,7 @@ angular.module("app").controller("serviceDayCtrl", ["$scope", "serviceDayService
 
         var selectedDate = $("#selectedDate").val();
 
-        serviceDayService.day(selectedDate, $scope.selected.range).then(function(response) {
+        serviceDayService.day(selectedDate, $scope.selected.range, VenueService.getVenueId()).then(function(response) {
 
             if( typeof response.data === 'string' ) {
                 $.notify({

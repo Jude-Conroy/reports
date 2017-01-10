@@ -7,7 +7,7 @@ angular.module('app').directive('customerVisitsDirective', function () {
             model: '=ngModel'
         },
         templateUrl: 'graphs/customerVisit.html',
-        controller: ('inputController', ['$scope', 'customerVisitsService', function ($scope, customerVisitsService) {
+        controller: ('inputController', ['$scope', 'customerVisitsService', 'VenueService', function ($scope, customerVisitsService, VenueService) {
 
             $('#visitspicker').datetimepicker({
                 viewMode: 'days',
@@ -43,7 +43,7 @@ angular.module('app').directive('customerVisitsDirective', function () {
 
                 var selectedDate = $('#inputQueryDate').val();
 
-                customerVisitsService.visits(selectedDate).then(function (response) {
+                customerVisitsService.visits(selectedDate, VenueService.getVenueId()).then(function (response) {
 
                     if( typeof response.data === 'string' ) {
                         $.notify({

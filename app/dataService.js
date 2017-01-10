@@ -7,13 +7,13 @@ angular.module('app').factory("customerVisitsService", function($http) {
 
     var factory = {};
 
-    factory.visits = function (date) {
+    factory.visits = function (date, venueId) {
 
         var dateSplit =  date.split("/");
 
         var data = {
             queryDate: dateSplit[2]+ "-" + dateSplit[1] + "-" + dateSplit[0],
-            venueid:"ac:86:74:0b:c7:08"
+            venueid:venueId
         };
 
         var config = {
@@ -30,14 +30,14 @@ angular.module('app').factory("serviceDayService", function($http) {
 
     var factory = {};
 
-    factory.day = function(date, reportType) {
+    factory.day = function(date, reportType, venueId) {
 
         var dateSplit =  date.split("/");
 
         var data = {
             queryDateRange: dateSplit[2]+ "-" + dateSplit[1] + "-" + dateSplit[0],
             reportType: reportType,
-            venueid:"ac:86:74:0b:c7:08"
+            venueid: venueId
         };
 
         var config = {
@@ -55,13 +55,13 @@ angular.module('app').factory("headCountService", function($http) {
 
     var factory = {};
 
-    factory.head = function (query) {
+    factory.head = function (query, venueId) {
 
         var dateSplit =  query.split("/");
 
         var data = {
             queryDate: dateSplit[2]+ "-" + dateSplit[1] + "-" + dateSplit[0],
-            venueid: "ac:86:74:0b:c7:08"
+            venueid: venueId
         };
 
         var config = {

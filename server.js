@@ -54,7 +54,7 @@ app.get('/headCountReport', function(request, response) {
     headcount.count(request.query.queryDate, request.query.venueid, function(data){
         response.send(data);
     });
-});
+});-
 
 app.get('/addUser', function(request, response) {
     user.addUser(request.query.userName, request.query.userEmail, request.query.userVenueId, function(data){

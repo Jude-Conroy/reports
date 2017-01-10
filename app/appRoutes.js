@@ -22,6 +22,6 @@ angular.module('app').config(['$routeProvider', function ($routeProvider) {
         .when("/DashboardView", {
             template : "<dashboard-directive></dashboard-directive>"
         })
-        .otherwise({ redirectTo: '/DashboardView' });
+        .otherwise({ redirectTo: '/' });
 
 }]);

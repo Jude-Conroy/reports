@@ -39,7 +39,7 @@ angular.module("framework").controller("frameworkController",
             $scope.menuButtonClicked = function () {
                 $scope.isMenuVisible = !$scope.isMenuVisible;
                 broadcastMenuState();
-                $scope.$apply();
+                //$scope.$apply();
             };
 
             var broadcastMenuState = function () {

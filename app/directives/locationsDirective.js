@@ -10,7 +10,7 @@ angular.module('app').directive('locations', [function () {
             initAddress: '@',
             title: '@'
         },
-        template: '<h1>{{title}}</h1><div ng-model=\"value\"><places-map  address=\"initAddress\"></places-map></div>',
+        template: '<div class=\"headingText\">{{title}}</div><div ng-model=\"value\"><places-map  address=\"initAddress\"></places-map></div>',
         controller: ('locationsCtrl', ['$scope', 'customerVisitsService', function ($scope) {
 
             $scope.title = "Venue Location";

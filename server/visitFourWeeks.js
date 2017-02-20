@@ -1,6 +1,7 @@
 /**
  * Created by jude on 28/11/2016.
  */
+(function(){
 module.exports.monthSplit =
     function (queryDate, venueId, callback) {
 
@@ -77,6 +78,5 @@ module.exports.monthSplit =
             });
         });
 };
-
-
+})();
 

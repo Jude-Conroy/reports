@@ -2,12 +2,7 @@
  * Created by jude on 28/11/2016.
  */
 (function(){
-var assert = require('assert');
-var ObjectId = require('mongodb').ObjectID;
-var test = require('assert');
-
-module.exports.addUser =
-    function (userName, userEmail, userVenueId, callback) {
+module.exports.pieDuration = function (callback) {
 
         //lets require/import the mongodb native drivers.
         var mongodb = require('mongodb');
@@ -26,20 +21,20 @@ module.exports.addUser =
             console.log('Connection established to', url);
 
             // Get the documents collection
-            var collection = db.collection('users');
+            var collection = db.collection('venueinfo');
 
-            collection.insert({
-                name: userName,
-                email: userEmail,
-                venues:[{venueid:userVenueId}]
-            }).then(function(r) {
-                // Finish up test
-                db.close();
-
-                return callback(test.equal(1, r.insertedCount));
+            collection.distinct("venueid").toArray(function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    callback(result);
+                } else {
+                    console.log('No document(s) found with defined "find" criteria!');
+                    callback('No document(s) found with defined "find" criteria!');
+                }
             });
         });
- };
+};
 })();
 
 

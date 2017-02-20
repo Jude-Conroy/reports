@@ -1,35 +1,37 @@
 /**
  * Created by jude on 28/11/2016.
  */
-var mongoose = require('mongoose');
+(function(){
+    var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/piData');
+    mongoose.connect('mongodb://localhost/piData');
 
-var db = mongoose.connection;
+    var db = mongoose.connection;
 
-// data structure
-var venueSchema = mongoose.Schema(
-    {
-        _id: String,
-        distance : String,
-        mac_short : String,
-        mac : String,
-        venueid : String,
-        samples : Number,
-        captime : Number
-    }
-);
+    // data structure
+    var venueSchema = mongoose.Schema(
+        {
+            _id: String,
+            distance : String,
+            mac_short : String,
+            mac : String,
+            venueid : String,
+            samples : Number,
+            captime : Number
+        }
+    );
 
-mongoose.model('venueinfo', venueSchema, 'venueinfo');
+    mongoose.model('venueinfo', venueSchema, 'venueinfo');
 
-db.on('error', console.error.bind(console, 'connection error.....'));
-db.once('open', function callback(){
-    console.log('Pi database is now open!')
-});
+    db.on('error', console.error.bind(console, 'connection error.....'));
+    db.once('open', function callback(){
+        console.log('Pi database is now open!')
+    });
 
-module.exports = {
-    mongoose: function () {
-        return mongoose;
-    }
-};
+    module.exports = {
+        mongoose: function () {
+            return mongoose;
+        }
+    };
+})();
 

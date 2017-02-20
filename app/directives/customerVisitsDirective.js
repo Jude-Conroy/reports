@@ -2,18 +2,9 @@
 
 angular.module('app').directive('customerVisitsDirective', function () {
     return {
-        restrict: 'EA',
-        scope: {
-            model: '=ngModel'
-        },
         templateUrl: 'graphs/customerVisit.html',
-        controller: ('inputController', ['$scope', 'customerVisitsService', 'VenueService', function ($scope, customerVisitsService, VenueService) {
-
-            $('#visitspicker').datetimepicker({
-                viewMode: 'days',
-                format: 'DD/MM/YYYY'
-            });
-
+        controller: ('inputController', ['customerVisitsService', function ($scope, customerVisitsService, $rootScope)
+        {
             $scope.options = {
                 scales: {
                     yAxes: [
@@ -43,7 +34,7 @@ angular.module('app').directive('customerVisitsDirective', function () {
 
                 var selectedDate = $('#inputQueryDate').val();
 
-                customerVisitsService.visits(selectedDate, VenueService.getVenueId()).then(function (response) {
+                customerVisitsService.visits(selectedDate, $rootScope.venueid).then(function (response) {
 
                     if( typeof response.data === 'string' ) {
                         $.notify({
@@ -74,8 +65,8 @@ angular.module('app').directive('customerVisitsDirective', function () {
                 });
             }
         }]),
-        link: function (scope, iElement, attrs, ctrl) {
+        link: function ($scope, iElement, attrs, ctrl) {
 
         }
-    };
+    }
 });

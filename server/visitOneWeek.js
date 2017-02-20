@@ -1,6 +1,7 @@
 /**
  * Created by jude on 28/11/2016.
  */
+(function(){
 var getDayText = function(date){
 
     if (date.getDay() == 0){
@@ -88,7 +89,6 @@ module.exports.weekReport =
                         newArray[keyCount] = datesArray[key];
                         keyCount++;
                     }
-
                     callback([labelsArray, newArray]);
                 } else {
                     console.log('No document(s) found with defined "find" criteria!');
@@ -97,6 +97,5 @@ module.exports.weekReport =
             });
         });
     };
-
-
+})();
 

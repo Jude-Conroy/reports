@@ -1,6 +1,7 @@
 /**
  * Created by jude on 28/11/2016.
  */
+(function(){
 module.exports.sixMonthSplir =
     function (queryDate, venueid, callback) {
 
@@ -86,6 +87,7 @@ module.exports.sixMonthSplir =
 
         });
  };
+})();
 
 
 

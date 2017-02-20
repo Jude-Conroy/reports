@@ -1,5 +1,7 @@
 ﻿const express = require('express');
 const app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 const path = require('path');
 const customerVisits = require('./server/customerVisits.js');
 const visitOneWeek = require('./server/visitOneWeek.js');
@@ -7,7 +9,6 @@ const visitFourWeeks = require('./server/visitFourWeeks.js');
 const visitSixMonths = require('./server/visitSixMonths.js');
 const headcount = require('./server/headCount.js');
 const user = require("./server/userAdmin")
-const port = 3000;
 
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.static(path.join(__dirname + '/Content')));
@@ -22,6 +23,13 @@ app.use(express.static(path.join(__dirname + '/')));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html')); // load the single view file (angular will handle the page changes on the front-end)
 });
+
+io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+        console.log('message: ' + msg);
+    });
+});
+
 
 app.get('/customerVisitsReport', function(request, response) {
     customerVisits.pieDuration(request.query.queryDate, request.query.venueid, function(data){
@@ -62,9 +70,13 @@ app.get('/addUser', function(request, response) {
     });
 });
 
-app.listen(port, function(err) {
+
+const port = 3001;
+const ipAddress = "127.0.0.1";
+
+http.listen(port, ipAddress, function(err){
     if (err) {
-        return console.log('something bad happened', err)
+       return console.log('something bad happened', err)
     }
-    console.log('server is listening on ' + port)
+   console.log('server is listening on ' + port)
 });

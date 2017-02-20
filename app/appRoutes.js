@@ -1,8 +1,9 @@
 "use strict";
 
-angular.module('app').config(['$routeProvider', function ($routeProvider) {
+angular.module('app')
+    .config(['$routeProvider', function ($routeProvider) {
 
-    $routeProvider
+        $routeProvider
         .when("/HeadCountView", {
             template : "<headcount-directive></headcount-directive>"
         })
@@ -10,8 +11,7 @@ angular.module('app').config(['$routeProvider', function ($routeProvider) {
             template : "<user-directive></user-directive>"
         })
         .when("/ServiceDayView", {
-            templateUrl : "graphs/serviceDay.html",
-            controller: "serviceDayCtrl"
+            template : "<service-day-directive></service-day-directive>"
         })
         .when("/CustomerVisitView", {
             template : "<customer-visits-directive></customer-visits-directive>"
@@ -24,4 +24,6 @@ angular.module('app').config(['$routeProvider', function ($routeProvider) {
         })
         .otherwise({ redirectTo: '/' });
 
-}]);
+}]).run(function($rootScope) {
+    $rootScope.venueid = location.search.split("&")[0].replace("?","").split("=")[1];
+});

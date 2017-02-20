@@ -1,19 +1,18 @@
-﻿<div class="container">
-    <div class="headingText">{{title}}</div>
+﻿<dashboard-directive></dashboard-directive>
+<div class="container">
     <div class="row">
         <div class='col-sm-3'>
             <div class="form-group">
-                <div class='input-group date' id='serviceDayPicker'>
-                    <input type='text' id="selectedDate" ng-model="selected.date" class="form-control"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                <div class="form-group">
+                    <div>
+                        <button class="btn" ng-model="date" my-date-picker><i class="fa fa-calendar"></i></button> <label class='dateText'>{{formattedDate}}</label>
+                    </div>
                 </div>
                 <div>
                     <select class='dropDownText' ng-model="selected.range" ng-options="x for x in names"/>
                 </div>
                 <div>
-                    <button class="btn btn-primary" ng-click="changeDate(selected.date)">Run report</button>
+                    <button class="btn btn-primary" ng-click="changeDate(selected)">Run report</button>
                 </div>
             </div>
         </div>

@@ -3,11 +3,8 @@
 angular.module('app').directive('headcountDirective', [function () {
     return {
         restrict: 'EA',
-        scope: {
-            model: '=ngModel'
-        },
         templateUrl: 'graphs/headCount.html',
-        controller: ('headcountController', ['$scope', 'headCountService', 'VenueService', function($scope, headCountService, VenueService) {
+        controller: ('headcountController', ['headCountService', function($scope, headCountService, $rootScope) {
 
             $('#headcountpicker').datetimepicker({
                 viewMode: 'days',
@@ -19,7 +16,7 @@ angular.module('app').directive('headcountDirective', [function () {
                 date: initialDate.getDate()  + "/" + (initialDate.getMonth() + 1) + "/" + initialDate.getFullYear()
             };
 
-            $scope.title = "Headcount per hour";
+            $scope.headTitle = "Headcount per hour";
 
             $scope.changeVisitDate = function(){
                 $scope.labels = [];
@@ -28,7 +25,7 @@ angular.module('app').directive('headcountDirective', [function () {
 
                 var selectedDate = $('#inputQueryDate').val();
 
-                headCountService.head(selectedDate, VenueService.getVenueId()).then(function(response) {
+                headCountService.head(selectedDate, $rootScope.venueid).then(function(response) {
 
                     if( typeof response.data === 'string' ) {
                         $.notify({

@@ -5,11 +5,6 @@
 
 angular.module('app').directive('locations', [function () {
     return {
-        scope: {
-            model: '=ngModel',
-            initAddress: '@',
-            title: '@'
-        },
         template: '<div class=\"headingText\">{{title}}</div><div ng-model=\"value\"><places-map  address=\"initAddress\"></places-map></div>',
         controller: ('locationsCtrl', ['$scope', 'customerVisitsService', function ($scope) {
 

@@ -30,6 +30,7 @@ angular.module('app').directive('customerVisitsDirective', function () {
             };
 
             $scope.title = "Visit Duration";
+
             $scope.changeVisitDate = function () {
 
                 var selectedDate = $('#inputQueryDate').val();

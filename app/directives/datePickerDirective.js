@@ -1,7 +1,7 @@
 /**
  * Created by Jude on 07/02/2017.
  */
-
+/*
 var app = angular.module('app');
 
 app.directive('datetimepicker', function(){
@@ -17,7 +17,7 @@ app.directive('datetimepicker', function(){
             }
 
             element.datetimepicker({
-                language: 'it'
+                language: 'en-gb'
             });
 
             element.on('dp.change', function(){
@@ -37,3 +37,4 @@ app.directive('datetimepicker', function(){
 app.controller('IndexController', function($scope){
     $scope.date = moment();
 });
+*/

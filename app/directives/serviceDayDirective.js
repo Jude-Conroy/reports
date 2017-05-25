@@ -56,18 +56,11 @@ angular.module('app').directive('serviceDayDirective', ['serviceDayService', fun
     };
 }]);
 
-angular.module('app').controller('controller', function ($scope) {
-    $scope.moment = moment;
-    $scope.date = new Date();
-    $scope.formattedDate = new Date();
-    $scope.addFifteen = function () {
-        $scope.date = new Date($scope.date.getTime() + (15 * 60000));
-    }
-})
+
 
 angular.module('app').directive('myDatePicker', function () {
         return {
-            restrict: 'A',
+            restrict: 'EA',
             require: '?ngModel',
             link: function (scope, element, attrs, ngModelController) {
 

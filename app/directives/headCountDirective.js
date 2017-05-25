@@ -4,12 +4,7 @@ angular.module('app').directive('headcountDirective', [function () {
     return {
         restrict: 'EA',
         templateUrl: 'graphs/headCount.html',
-        controller: ('headcountController', ['headCountService', function($scope, headCountService, $rootScope) {
-
-            $('#headcountpicker').datetimepicker({
-                viewMode: 'days',
-                format: 'DD/MM/YYYY'
-            });
+        controller: ('headcountController', ['headCountService','$scope', function($scope, headCountService) {
 
             var initialDate = new Date();
             $scope.selected = {
@@ -17,6 +12,13 @@ angular.module('app').directive('headcountDirective', [function () {
             };
 
             $scope.headTitle = "Headcount per hour";
+
+            $('#datetimepicker6').datepicker(
+                {
+                    viewMode: 'days',
+                    format: 'DD/MM/YYYY'
+                }
+            );
 
             $scope.changeVisitDate = function(){
                 $scope.labels = [];

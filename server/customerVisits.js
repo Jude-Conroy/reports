@@ -60,7 +60,7 @@
             };
 
             // Use connect method to connect to the Server
-            MongoClient.connect(url, function (err, db) {
+            MongoClient.connectCallback(url, function (err, db) {
                 if (err) {
                     console.log('Unable to connect to the mongoDB server. Error:', err);
                     return;
@@ -74,7 +74,7 @@
                 collection.find({
                     venueid: {$eq: venueid},
                     captime: {$gte: startDate, $lte: endDate}
-                }).toArray(function (err, result) {
+                }).filter(function (err, result) {
                     if (err) {
                         console.log(err);
                     } else if (result.length) {

@@ -3,11 +3,9 @@
     <div class="row">
         <div class='col-sm-3'>
             <div class="form-group">
-                <div class='input-group date' id='visitspicker'>
-                    <input type='text' title="Select date" id="inputQueryDate" ng-model="selected.date" class="form-control"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                <div>
+                    <button class="btn" ng-model="date" my-date-picker><i class="fa fa-calendar"></i></button>
+                    <label class='dateText'>{{formattedDate}}</label>
                 </div>
                 <button class="btn btn-primary" ng-click="changeVisitDate(selected.date)">Run report</button>
             </div>

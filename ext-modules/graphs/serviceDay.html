@@ -1,12 +1,12 @@
-﻿<dashboard-directive></dashboard-directive>
-<div class="container">
+﻿<div class="container">
     <div class="headingText">{{title}}</div>
     <div class="row">
         <div class='col-sm-3'>
             <div class="form-group">
                 <div class="form-group">
                     <div>
-                        <button class="btn" ng-model="date" my-date-picker><i class="fa fa-calendar"></i></button> <label class='dateText'>{{formattedDate}}</label>
+                        <button class="btn" ng-model="date" my-date-picker><i class="fa fa-calendar"></i></button>
+                        <label class='dateText'>{{formattedDate}}</label>
                     </div>
                 </div>
                 <div>
@@ -19,6 +19,12 @@
         </div>
     </div>
 
-    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"
-            height="688" width="1376" style="display: block; width: 688px; height: 344px;"/>
+    <canvas id="bar" class="chart chart-bar"
+            chart-data="data"
+            chart-labels="labels"
+            chart-series="series"
+            height="688" width="1376"
+            style="display: block;
+            width: 688px;
+            height: 344px;"/>
 </div>

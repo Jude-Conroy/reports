@@ -1,10 +1,10 @@
 "use strict";
 
-angular.module('app').directive('headcountDirective', [function () {
+angular.module('app').directive('headcountDirective', [ 'headCountService', function (headCountService) {
     return {
         restrict: 'EA',
         templateUrl: 'graphs/headCount.html',
-        controller: ('headcountController', ['headCountService','$scope', function($scope, headCountService) {
+        controller: ('headcountController', function($scope, $rootScope) {
 
             var initialDate = new Date();
             $scope.selected = {
@@ -25,9 +25,7 @@ angular.module('app').directive('headcountDirective', [function () {
                 $scope.series = [];
                 $scope.data =  [];
 
-                var selectedDate = $('#inputQueryDate').val();
-
-                headCountService.head(selectedDate, $rootScope.venueid).then(function(response) {
+                headCountService.head(moment($scope.date).format('DD/MM/YYYY'), $rootScope.venueid).then(function(response) {
 
                     if( typeof response.data === 'string' ) {
                         $.notify({
@@ -59,7 +57,7 @@ angular.module('app').directive('headcountDirective', [function () {
                     }
                 });
             }
-        }]),
+        }),
         link: function(scope, iElement, attrs, ctrl) {
         }
     };

@@ -22,13 +22,6 @@
             var startDate = Date.parse(queryDate);
             var endDate = startDate + 1000 * 60 * 60 * 24;
 
-            //lets require/import the mongodb native drivers.
-            var mongodb = require('mongodb');
-            //We need to work with "MongoClient" interface in order to connect to a mongodb server.
-            var MongoClient = mongodb.MongoClient;
-            // Connection URL. This is where your mongodb server is running.
-            var url = 'mongodb://localhost:27017/piData';
-
             var calcFrequencies = function (data) {
 
                 currentMac = data.mac;
@@ -59,8 +52,15 @@
                 previousTime = data.captime;
             };
 
+            //lets require/import the mongodb native drivers.
+            var mongodb = require('mongodb');
+            //We need to work with "MongoClient" interface in order to connect to a mongodb server.
+            var MongoClient = mongodb.MongoClient;
+            // Connection URL. This is where your mongodb server is running.
+            var url = 'mongodb://localhost:27017/piData';
+
             // Use connect method to connect to the Server
-            MongoClient.connectCallback(url, function (err, db) {
+            MongoClient.connect(url, function (err, db) {
                 if (err) {
                     console.log('Unable to connect to the mongoDB server. Error:', err);
                     return;
@@ -74,7 +74,7 @@
                 collection.find({
                     venueid: {$eq: venueid},
                     captime: {$gte: startDate, $lte: endDate}
-                }).filter(function (err, result) {
+                }).toArray(function (err, result) {
                     if (err) {
                         console.log(err);
                     } else if (result.length) {

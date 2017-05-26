@@ -1,9 +1,9 @@
 ﻿"use strict";
 
-angular.module('app').directive('customerVisitsDirective', function () {
+angular.module('app').directive('customerVisitsDirective', ['customerVisitsService' ,function (customerVisitsService) {
     return {
         templateUrl: 'graphs/customerVisit.html',
-        controller: ('inputController', ['customerVisitsService', function ($scope, customerVisitsService, $rootScope)
+        controller: ('customerVisitsController', function ($scope, $rootScope)
         {
             $scope.options = {
                 scales: {
@@ -25,6 +25,7 @@ angular.module('app').directive('customerVisitsDirective', function () {
             };
 
             var initialDate = new Date();
+
             $scope.selected = {
                 date: initialDate.getDate()  + "/" + (initialDate.getMonth() + 1) + "/" + initialDate.getFullYear()
             };
@@ -33,9 +34,7 @@ angular.module('app').directive('customerVisitsDirective', function () {
 
             $scope.changeVisitDate = function () {
 
-                var selectedDate = $('#inputQueryDate').val();
-
-                customerVisitsService.visits(selectedDate, $rootScope.venueid).then(function (response) {
+                customerVisitsService.visits(moment($scope.date).format('DD/MM/YYYY'), $rootScope.venueid).then(function (response) {
 
                     if( typeof response.data === 'string' ) {
                         $.notify({
@@ -65,9 +64,9 @@ angular.module('app').directive('customerVisitsDirective', function () {
                     }
                 });
             }
-        }]),
+        }),
         link: function ($scope, iElement, attrs, ctrl) {
 
         }
     }
-});
+}]);

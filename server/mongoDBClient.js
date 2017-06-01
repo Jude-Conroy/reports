@@ -21,7 +21,7 @@
         }
     );
 
-    mongoose.model('venueinfo', venueSchema, 'venueinfo');
+    mongoose.model('venueInfo', venueSchema, 'venueInfo');
 
     db.on('error', console.error.bind(console, 'connection error.....'));
     db.once('open', function callback(){

@@ -66,7 +66,7 @@ module.exports.weekReport =
             }
             console.log('Connection established to', url);
             // Get the documents collection
-            var collection = db.collection('venueinfo');
+            var collection = db.collection('venueInfo');
 
             collection.find({
                 venueid: {$eq: venueid},
